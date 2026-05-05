@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IHIパーキングスクエア パンフレット構成</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Crimson+Pro:wght@400;500;700&family=Shippori+Mincho+B1:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="toolbar">
+    <div class="toolbar-left">
+      <span class="title">IHIパーキングスクエア パンフレット構成</span>
+    </div>
+    <div class="toolbar-center">
+      <button id="prev-btn" class="nav-btn" disabled>&larr;</button>
+      <span id="page-indicator">1 / 5</span>
+      <button id="next-btn" class="nav-btn">&rarr;</button>
+    </div>
+    <div class="toolbar-right">
+      <button id="zoom-out" class="tool-btn">&minus;</button>
+      <span id="zoom-level">100%</span>
+      <button id="zoom-in" class="tool-btn">+</button>
+    </div>
+  </header>
+
+  <main class="viewer" id="viewer">
+    <div class="page-container" id="page-container">
+
+      <!-- 表紙 (p.1) -->
+      <div class="viewer-item" data-view="1" data-label="表紙">
+        <div class="a4-page cover-page">
+          <img src="P1.png" alt="表紙" class="cover-img">
+        </div>
+      </div>
+
+      <!-- 見開き (p.2–3) -->
+      <div class="viewer-item spread" data-view="2" data-label="2–3">
+        <div class="a4-page">
+          <div class="page-content page-content--full">
+            <div class="p2">
+
+              <!-- 左上テキスト -->
+              <div class="p2-top">
+                <p class="p2-headline">人、クルマ、街をつなぎ、<br>社会機能の<br>維持に貢献。</p>
+              </div>
+
+              <!-- 事業内容 -->
+              <div class="p2-bottom">
+                <div class="p2-bottom-text">
+                  <div class="p2-section-label">事業内容</div>
+                  <p class="p2-body">IHIパーキングスクエアは、機械式駐車装置の設計・製造・施工から保守・メンテナンスまでを一貫して手がけるパーキングシステムの専門会社です。タワーパーキングや地下式など多彩な駐車システムを通じて、都市の限られた空間を最大限に活用。自走式立体駐車場の設計・施工にも対応し、安全で快適な駐車環境の実現に貢献しています。</p>
+                </div>
+                <div class="p2-bottom-img">
+                  <img src="building.png" alt="施設外観" style="width:100%;height:100%;object-fit:cover;display:block;">
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="a4-page">
+          <div class="page-content page-content--full">
+            <div class="p3">
+
+              <div class="p3-header">
+                <div class="p3-section-headline">製品紹介</div>
+                <p class="p3-lead">人とクルマの未来を考え、世界のまちづくりに貢献する。1962年に日本初のタワーパーキングを完成させて以来、60年以上にわたり駐車システムを開発。バリアフリー化・省エネ化・低振動技術など革新的な取り組みを重ね、電動車対応の次世代エコパーキング実現を推進しています。</p>
+              </div>
+
+              <!-- 製品紹介 -->
+              <div class="p3-block">
+
+                <div class="p3-product-grid p3-product-grid--4">
+                  <div class="p3-product-card">
+                    <img class="p3-product-img" src="https://www.iuk.co.jp/parking/kikaishiki/wordpress/wp-content/themes/ips_kikaishiki_v1/assets/img/portal/portal0201.jpg" alt="エレベータパーキング">
+                    <div class="p3-product-title">エレベータパーキング</div>
+                    <div class="p3-product-body">省エネルギーで低騒音・低振動を実現したエレベータ方式の機械式駐車装置。昇降速度は最大毎分120mで平均出庫待ち時間は約2分15秒。屋外45m・屋内100m程度まで対応し、ハイルーフ車も収容可能。</div>
+                  </div>
+                  <div class="p3-product-card">
+                    <img class="p3-product-img" src="https://www.iuk.co.jp/parking/kikaishiki/wordpress/wp-content/themes/ips_kikaishiki_v1/assets/img/portal/portal0202.jpg" alt="超高層エレベータパーキング">
+                    <div class="p3-product-title">超高層エレベータパーキング</div>
+                    <div class="p3-product-body">高層建物の空間部分を有効活用した収容効率の高いパーキングシステム。昇降スピードは最大毎分180mで混雑時でも迅速対応。バリアフリーオプション対応。</div>
+                  </div>
+                  <div class="p3-product-card">
+                    <img class="p3-product-img" src="https://www.iuk.co.jp/parking/kikaishiki/wordpress/wp-content/themes/ips_kikaishiki_v1/assets/img/portal/portal0203.jpg" alt="フォークパーキング">
+                    <div class="p3-product-title">フォークパーキング</div>
+                    <div class="p3-product-body">くし型搬送システムによりスピーディな入出庫を実現。業界初のワイヤーロープ採用で低騒音・低振動を達成。平均出庫待ち時間は約1分5秒と業界最高水準。</div>
+                  </div>
+                  <div class="p3-product-card">
+                    <img class="p3-product-img" src="https://www.iuk.co.jp/parking/kikaishiki/wordpress/wp-content/themes/ips_kikaishiki_v1/assets/img/portal/portal0204.jpg" alt="タワーパーキング">
+                    <div class="p3-product-title">タワーパーキング</div>
+                    <div class="p3-product-body">1962年に日本初の納入実績を持つ垂直循環方式の主力製品。エンドレスチェーンで次々と入庫が可能で、故障の少ないシンプルな構造が強み。平均出庫待ち時間は約1分35秒。</div>
+                  </div>
+                </div>
+                <div class="p3-product-grid p3-product-grid--3">
+                  <div class="p3-product-card">
+                    <img class="p3-product-img" src="https://www.iuk.co.jp/parking/kikaishiki/wordpress/wp-content/themes/ips_kikaishiki_v1/assets/img/portal/portal0205.jpg" alt="スーパースクエアパーキング">
+                    <div class="p3-product-title">スーパースクエアパーキング</div>
+                    <div class="p3-product-body">地下空間の形状に合わせて柔軟にレイアウトできる水平循環方式。独自アルゴリズムで最短入出庫ルートを計算し低騒音・低振動を実現。フラットパレット標準装備で車椅子利用者にも対応。</div>
+                  </div>
+                  <div class="p3-product-card">
+                    <img class="p3-product-img" src="https://www.iuk.co.jp/parking/kikaishiki/wordpress/wp-content/themes/ips_kikaishiki_v1/assets/img/portal/portal0206.jpg" alt="大規模スーパースクエアパーキング">
+                    <div class="p3-product-title">大規模スーパースクエアパーキング</div>
+                    <div class="p3-product-body">独自アルゴリズムで待ち時間を従来機種より約25%削減した大規模対応モデル。全長5.3m・全幅2.05m・全高2.1m・重量2.6tまで対応し、SUVや大型車も収容。平均出庫時間は約2分。</div>
+                  </div>
+                  <div class="p3-product-card">
+                    <img class="p3-product-img" src="https://www.iuk.co.jp/parking/jisoshiki/wordpress/wp-content/uploads/2023/02/portal_link01.jpg" alt="自走式駐車場">
+                    <div class="p3-product-title">自走式駐車場</div>
+                    <div class="p3-product-body">太陽光発電を壁面・屋上に設置しEV充電や照明に活用。壁面・屋上緑化によるCO2削減も実現。環境配慮型・EV対応・防災対応など用途に応じた多様な設計に対応。</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- IP2の特徴 -->
+              <div class="p3-block">
+                <div class="p3-section-headline">IP2の特徴・魅力</div>
+                <div class="p3-strengths-grid">
+                  <div class="p3-strength-item">
+                    <div class="p3-strength-num">01</div>
+                    <div class="p3-strength-text">
+                      <div class="p3-strength-title">IHIグループとしての安定した事業基盤</div>
+                      <div class="p3-strength-body">日本を代表する総合重工業グループ「IHI」の一員として、高度な技術力と強固な経営基盤を有しています。社会インフラを支える事業特性から、将来にわたって安心してキャリアを形成できる環境が整っています。</div>
+                    </div>
+                    <img class="p3-strength-img" src="https://www.iuk.co.jp/wordpress/wp-content/themes/iuk/img/company_mv_img.png" alt="IHIグループとしての安定した事業基盤">
+                  </div>
+                  <div class="p3-strength-item">
+                    <div class="p3-strength-num">02</div>
+                    <div class="p3-strength-text">
+                      <div class="p3-strength-title">リーディングカンパニーとしての実績と信頼</div>
+                      <div class="p3-strength-body">1962年に日本で初めてタワーパーキングを納入した業界のパイオニア。半世紀以上の納入実績とノウハウが蓄積され、都市部の立体駐車場分野で国内トップクラスのシェアを誇ります。</div>
+                    </div>
+                    <img class="p3-strength-img" src="https://www.iuk.co.jp/wordpress/wp-content/themes/iuk/img/business_img02.png" alt="リーディングカンパニーとしての実績と信頼">
+                  </div>
+                  <div class="p3-strength-item">
+                    <div class="p3-strength-num">03</div>
+                    <div class="p3-strength-text">
+                      <div class="p3-strength-title">企画から運営まで「ワンストップサービス」体制</div>
+                      <div class="p3-strength-body">パーキングシステムのライフサイクル全てを自社で完結できるのが強み。設置後のアフターサービスやリニューアルまで一貫して担い、顧客と長期的な信頼関係を築いています。</div>
+                    </div>
+                    <img class="p3-strength-img" src="../ihi/img/AdobeStock_1260389953.jpeg" alt="企画から運営まで「ワンストップサービス」体制">
+                  </div>
+                  <div class="p3-strength-item">
+                    <div class="p3-strength-num">04</div>
+                    <div class="p3-strength-text">
+                      <div class="p3-strength-title">人を大切にし、育てる文化</div>
+                      <div class="p3-strength-body">入社1年目は先輩社員が教育・指導にあたる「職場指導員制度」を実施。2年目以降も部門ごとのOJTを中心に、充実した人材育成の仕組みを整えています。</div>
+                    </div>
+                    <img class="p3-strength-img" src="../ihi/img/AdobeStock_1536029778.jpeg" alt="人を大切にし、育てる文化">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 見開き (p.4–5) -->
+      <div class="viewer-item spread" data-view="3" data-label="4–5">
+
+        <!-- P4: 職種紹介 -->
+        <div class="a4-page">
+          <div class="page-content page-content--full">
+            <div class="p4">
+              <div class="p4-header">
+                <span class="p4-ja">職種紹介</span>
+              </div>
+
+              <div class="p4-body">
+                <!-- 技術系 -->
+                <div class="p4-category">
+                  <div class="p4-cat-header">
+                    <span class="p4-cat-title">技術系職種</span>
+                  </div>
+                  <div class="p4-grid">
+                    <div class="p4-job">
+                      <div class="p4-job-img">仕事風景（撮影）</div>
+                      <div class="p4-job-content">
+                        <div class="p4-job-title">基本設計</div>
+                        <div class="p4-tags"><span class="p4-tag">システム設計</span><span class="p4-tag">仕様策定</span><span class="p4-tag">顧客技術折衝</span></div>
+                        <p class="p4-job-desc">機械式駐車装置の基本仕様を決定する上流設計を担当。顧客要望・敷地条件・法規制を総合的に分析し、装置構成・レイアウトを策定します。</p>
+                      </div>
+                    </div>
+                    <div class="p4-job">
+                      <div class="p4-job-img">仕事風景（撮影）</div>
+                      <div class="p4-job-content">
+                        <div class="p4-job-title">詳細設計（エレ）</div>
+                        <div class="p4-tags"><span class="p4-tag">電気・制御</span><span class="p4-tag">回路設計</span><span class="p4-tag">安全回路</span></div>
+                        <p class="p4-job-desc">電気・制御系統の詳細設計を担当。制御盤の回路設計・センサー選定・安全回路設計を行い、機械系エンジニアと密に連携します。</p>
+                      </div>
+                    </div>
+                    <div class="p4-job">
+                      <div class="p4-job-img">仕事風景（撮影）</div>
+                      <div class="p4-job-content">
+                        <div class="p4-job-title">詳細設計（メカ）</div>
+                        <div class="p4-tags"><span class="p4-tag">機械工学</span><span class="p4-tag">CAD / 図面作成</span><span class="p4-tag">部品設計</span></div>
+                        <p class="p4-job-desc">機械系統の詳細設計を担当。各部品の形状・寸法・材質を決定し、製造・組立図面を作成します。強度計算・機構解析も行います。</p>
+                      </div>
+                    </div>
+                    <div class="p4-job">
+                      <div class="p4-job-img">仕事風景（撮影）</div>
+                      <div class="p4-job-content">
+                        <div class="p4-job-title">建築設計</div>
+                        <div class="p4-tags"><span class="p4-tag">自走式設計</span><span class="p4-tag">建物・構造</span><span class="p4-tag">法規・申請</span></div>
+                        <p class="p4-job-desc">自走式駐車場の建築設計を担当。構造計画・平面計画から確認申請図書の作成・施工図の監修まで一貫して携わります。</p>
+                      </div>
+                    </div>
+                    <div class="p4-job">
+                      <div class="p4-job-img">仕事風景（撮影）</div>
+                      <div class="p4-job-content">
+                        <div class="p4-job-title">施工管理</div>
+                        <div class="p4-tags"><span class="p4-tag">工程管理</span><span class="p4-tag">安全管理</span><span class="p4-tag">品質管理</span></div>
+                        <p class="p4-job-desc">設置工事における施工管理を担当。工程・安全・品質・原価の4管理を軸に、工事業者の指揮監督から部門間の連絡調整まで担います。</p>
+                      </div>
+                    </div>
+                    <div class="p4-job">
+                      <div class="p4-job-img">仕事風景（撮影）</div>
+                      <div class="p4-job-content">
+                        <div class="p4-job-title">パーキングサービスエンジニア</div>
+                        <div class="p4-tags"><span class="p4-tag">定期点検</span><span class="p4-tag">故障診断・修理</span><span class="p4-tag">電気・機械</span></div>
+                        <p class="p4-job-desc">定期点検・修理・緊急対応を担当。電気・機械・制御の複合知識を活かし、装置が安全に稼働し続けるよう365日支えます。</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 事務系 -->
+                <div class="p4-category">
+                  <div class="p4-cat-header">
+                    <span class="p4-cat-title">事務系職種</span>
+                  </div>
+                  <div class="p4-grid">
+                    <div class="p4-job">
+                      <div class="p4-job-img">仕事風景（撮影）</div>
+                      <div class="p4-job-content">
+                        <div class="p4-job-title">生産管理</div>
+                        <div class="p4-tags"><span class="p4-tag">生産計画</span><span class="p4-tag">在庫管理</span><span class="p4-tag">工程調整</span></div>
+                        <p class="p4-job-desc">製造計画を立案し、資材調達から出荷まで各工程が滞りなく進むよう管理。設計・製造・工事の各部門と密に連携します。</p>
+                      </div>
+                    </div>
+                    <div class="p4-job">
+                      <div class="p4-job-img">仕事風景（撮影）</div>
+                      <div class="p4-job-content">
+                        <div class="p4-job-title">調達</div>
+                        <div class="p4-tags"><span class="p4-tag">購買・調達</span><span class="p4-tag">サプライヤー管理</span><span class="p4-tag">コスト管理</span></div>
+                        <p class="p4-job-desc">部品・材料の調達を担当。サプライヤーとの価格交渉・発注・納期管理を行い、コストと品質のバランスを見極めます。</p>
+                      </div>
+                    </div>
+                    <div class="p4-job">
+                      <div class="p4-job-img">仕事風景（撮影）</div>
+                      <div class="p4-job-content">
+                        <div class="p4-job-title">パーキング新設営業</div>
+                        <div class="p4-tags"><span class="p4-tag">技術提案</span><span class="p4-tag">顧客折衝</span><span class="p4-tag">見積・契約</span></div>
+                        <p class="p4-job-desc">新設駐車場の受注活動を担当。デベロッパー・ゼネコンなどに敷地条件に合わせた計画を提案し、仕様調整・契約締結まで担います。</p>
+                      </div>
+                    </div>
+                    <div class="p4-job">
+                      <div class="p4-job-img">仕事風景（撮影）</div>
+                      <div class="p4-job-content">
+                        <div class="p4-job-title">パーキングメンテナンス営業</div>
+                        <div class="p4-tags"><span class="p4-tag">保守提案</span><span class="p4-tag">顧客関係管理</span><span class="p4-tag">リニューアル提案</span></div>
+                        <p class="p4-job-desc">既設装置の保守点検・リニューアルを提案。長期的な信頼関係を築きながら顧客の安全・安心な装置運用を支えます。</p>
+                      </div>
+                    </div>
+                    <div class="p4-job">
+                      <div class="p4-job-img">仕事風景（撮影）</div>
+                      <div class="p4-job-content">
+                        <div class="p4-job-title">コーポレート</div>
+                        <div class="p4-tags"><span class="p4-tag">人事・労務</span><span class="p4-tag">経理・財務</span><span class="p4-tag">総務・法務</span></div>
+                        <p class="p4-job-desc">人事・総務・経理・財務・情報システムなど、会社経営を支えるバックオフィス業務全般を担当します。</p>
+                      </div>
+                    </div>
+                    <div class="p4-job">
+                      <div class="p4-job-img">仕事風景（撮影）</div>
+                      <div class="p4-job-content">
+                        <div class="p4-job-title">事業開発</div>
+                        <div class="p4-tags"><span class="p4-tag">新規事業企画</span><span class="p4-tag">市場調査</span><span class="p4-tag">事業戦略</span></div>
+                        <p class="p4-job-desc">既存事業の枠を超えた新ビジネスモデルの構築を担当。EV充電・スマートパーキングなど次世代サービスの事業機会を探索・具現化します。</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- P5: 仕事の流れ -->
+        <div class="a4-page">
+          <div class="page-content page-content--full">
+            <div class="p5">
+              <div class="p5-header">
+                <span class="p5-ja">仕事の流れ</span>
+              </div>
+
+              <div class="p5-flow-grid">
+                <div class="p5-step">
+                  <img class="p5-step-img" src="01.png" alt="01 開発">
+                  <div class="p5-step-body">
+
+                    <div class="p5-step-title">開発</div>
+                    <p class="p5-step-desc">業務は事業計画をはじめ、計画・見積り・試験・評価など多岐にわたります。IUKが培ってきた技術基盤に新たな技術を融合させ、まだ誰も実現していないものを創出できることが開発の魅力です。</p>
+                  </div>
+                </div>
+                <div class="p5-step">
+                  <img class="p5-step-img" src="02.png" alt="02 営業">
+                  <div class="p5-step-body">
+
+                    <div class="p5-step-title">営業</div>
+                    <p class="p5-step-desc">パーキングシステム製品を、お客さま（事業主や設計事務所など）のニーズに合わせて提案する業務。既存のお客さまからの問い合わせに対応する営業や、定期的に訪問するルート営業を行います。</p>
+                  </div>
+                </div>
+                <div class="p5-step">
+                  <img class="p5-step-img" src="03.png" alt="03 基本設計">
+                  <div class="p5-step-body">
+
+                    <div class="p5-step-title">基本設計</div>
+                    <p class="p5-step-desc">お客さまのイメージを図面に落とし込んでいく基本設計は、駐車場を創り上げるキーパーソン。技術や知識だけでなく、打ち合わせや後工程部門への申し伝えなど高いコミュニケーション能力も求められます。</p>
+                  </div>
+                </div>
+                <div class="p5-step">
+                  <img class="p5-step-img" src="04.png" alt="04 詳細設計">
+                  <div class="p5-step-body">
+
+                    <div class="p5-step-title">詳細（機械・制御）設計</div>
+                    <p class="p5-step-desc">機械設計は、基本設計図を基に工場製作や建設現場用の図面を作成。制御設計は、機械設計が担当した構造部分を可動にするための制御・配電盤の設計、部品プログラムの組み込みなどを行います。</p>
+                  </div>
+                </div>
+                <div class="p5-step">
+                  <img class="p5-step-img" src="05.png" alt="05 調達">
+                  <div class="p5-step-body">
+
+                    <div class="p5-step-title">調達</div>
+                    <p class="p5-step-desc">各部門から要望のあった部材を仕様書のスペックに応えるべく、複数社の見積もり・価格・信頼性などを比較検討します。適正な時期に、適正な価格で部材を調達することが求められます。</p>
+                  </div>
+                </div>
+                <div class="p5-step">
+                  <img class="p5-step-img" src="06.png" alt="06 製造">
+                  <div class="p5-step-body">
+
+                    <div class="p5-step-title">製造</div>
+                    <p class="p5-step-desc">静岡県の沼津工場を拠点に、詳細設計部と連携を取りながらパーキングシステムを製造します。レーザー加工機・NC工作機などを使用して必要な部材を加工・製造しながら、機械を組み立てます。</p>
+                  </div>
+                </div>
+                <div class="p5-step">
+                  <img class="p5-step-img" src="07.png" alt="07 建設">
+                  <div class="p5-step-body">
+
+                    <div class="p5-step-title">建設</div>
+                    <p class="p5-step-desc">パーキングシステムを建設する業務。予算や日程、引き渡しなどの工事計画を綿密にし、現場の安全や工程費用の管理も担当。竣工前には試運転と最終調整・確認を行います。</p>
+                  </div>
+                </div>
+                <div class="p5-step">
+                  <img class="p5-step-img" src="08.png" alt="08 納入後サービスエンジニア">
+                  <div class="p5-step-body">
+
+                    <div class="p5-step-title">納入後 サービスエンジニア</div>
+                    <p class="p5-step-desc">パーキングシステムの点検・保守を3人1組のチーム制で実施。1日あたり3〜4基の点検を行い、老朽化した部品や機械の改修工事を提案。決定後は業者の手配など工事に必要な業務も担当します。</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="p5-vision">
+                <div class="p5-vision-text">
+                  <div class="p5-vision-title">ビジョン・研究開発</div>
+                  <p class="p5-vision-body">労働人口の減少や気候変動など様々な課題に直面し、街もクルマも、その役割や在り方に変化を迫られています。IUKでは、X-Tech NUMAZU<sup>*1</sup>などの実証実験に参画しながら、駐車場データの研究、EV対応、自走式駐車場における太陽光発電システムの開発などを推進。さらに「駐車場のCASE＝モビリティハブ」をキーワードに、"駐車場×街×クルマ"を連携したスペースシェアやダイナミック・プライシングによる駐車場利用の平準化、駐車場のエネルギーハブ化などの実現を目指し、新たなLCB<sup>*2</sup>の創出を進めています。</p>
+                  <p class="p5-vision-footnote"><sup>*1</sup> 産官学で取り組むスマートシティ実現のためのプロジェクト　<sup>*2</sup> Life Cycle Business</p>
+                </div>
+                <img class="p5-vision-img" src="ppp03.jpg" alt="ビジョン・研究開発">
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 見開き (p.6–7) -->
+      <div class="viewer-item spread" data-view="4" data-label="6–7">
+
+        <!-- P6 -->
+        <div class="a4-page">
+          <div class="page-content page-content--full">
+            <div class="pp">
+              <div class="pp-header">
+                <span class="pp-headline">人を知る</span>
+              </div>
+              <div class="pp-grid">
+
+                <div class="pp-card">
+                  <div class="pp-photo">人物ポートレート（撮影）</div>
+                  <div class="pp-info">
+                    <div class="pp-name">田中 健太</div>
+                    <div class="pp-meta"><span class="pp-role">基本設計</span><span class="pp-year">2003年入社</span></div>
+                    <p class="pp-quote">大学で機械工学を学ぶなかで、自分の知識を社会インフラの整備に活かしたいという思いが強くなりました。IHIパーキングスクエアの説明会で「日本初のタワーパーキングを生み出した会社」という話を聞き、その技術力と開発への姿勢に強く魅力を感じました。入社後は機械式駐車装置の基本設計を担当し、設計の上流工程からプロジェクトに関われることに大きなやりがいを感じています。一つの装置が街に設置され、長く使われていく姿を見るたびに、この仕事を選んで良かったと思います。</p>
+                  </div>
+                </div>
+
+                <div class="pp-card pp-card--flip">
+                  <div class="pp-photo">人物ポートレート（撮影）</div>
+                  <div class="pp-info">
+                    <div class="pp-name">鈴木 彩花</div>
+                    <div class="pp-meta"><span class="pp-role">制御設計</span><span class="pp-year">2018年入社</span></div>
+                    <p class="pp-quote">電気電子工学を学ぶなかで、日常生活に密着した製品の設計に携わりたいと考えていました。IHIパーキングスクエアは機械式駐車装置という特殊な製品を扱いながらも、電気設計の役割が大きいと知り興味を持ちました。面接で「電気系の人材を積極的に育てたい」という言葉を聞き、入社を決意。現在は制御プログラムの設計から試験までを一貫して手がけており、複雑なシステムが思い通りに動いた瞬間の達成感は格別です。</p>
+                  </div>
+                </div>
+
+                <div class="pp-card">
+                  <div class="pp-photo">人物ポートレート（撮影）</div>
+                  <div class="pp-info">
+                    <div class="pp-name">山本 拓也</div>
+                    <div class="pp-meta"><span class="pp-role">建築設計（自走式）</span><span class="pp-year">2013年入社</span></div>
+                    <p class="pp-quote">都市のインフラを建築の観点から設計したいと考えていました。IHIパーキングスクエアは自走式立体駐車場という建築物そのものを手がける会社であり、設計から完成まで責任を持って関われる環境が決め手となりました。大手ゼネコンとは異なる専門性の高さも魅力です。現在は商業施設やマンションに付帯する駐車場の設計を担当しており、建物の顔にもなる構造物を形にする喜びは、入社前に想像していた以上のものでした。</p>
+                  </div>
+                </div>
+
+                <div class="pp-card pp-card--flip">
+                  <div class="pp-photo">人物ポートレート（撮影）</div>
+                  <div class="pp-info">
+                    <div class="pp-name">伊藤 誠</div>
+                    <div class="pp-meta"><span class="pp-role">施工管理</span><span class="pp-year">2001年入社</span></div>
+                    <p class="pp-quote">大学で機械工学を学び、自分の手で実際にモノを動かす仕事に就きたいと考えていました。機械・電気・制御が複合した精密な製品の設置を一から管理できる施工管理に強く惹かれ入社しました。現場では協力会社や顧客との調整から安全管理まで幅広く担い、装置が完成し稼働を開始したときの達成感は何物にも代えがたいです。20年以上のキャリアを通じて培った現場力を、若い世代に伝えていくことも今の大きなやりがいです。</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- P7 -->
+        <div class="a4-page">
+          <div class="page-content page-content--full">
+            <div class="pp">
+              <div class="pp-header pp-header--hidden"></div>
+              <div class="pp-grid">
+
+                <div class="pp-card">
+                  <div class="pp-photo">人物ポートレート（撮影）</div>
+                  <div class="pp-info">
+                    <div class="pp-name">渡辺 麻衣</div>
+                    <div class="pp-meta"><span class="pp-role">生産管理</span><span class="pp-year">2019年入社</span></div>
+                    <p class="pp-quote">大学でサプライチェーンや生産システムを学び、製造現場の効率化に携わる仕事をしたいと思っていました。IHIパーキングスクエアは一品一様の受注生産を行っており、標準化された量産品にはない難しさと奥深さを感じました。工場見学で現場の方々が連携して大型装置を作り上げる姿に感動し、この会社で働きたいと強く思いました。現在は工程管理と在庫管理を担当しており、設計・製造・施工の各部門をつなぐ役割に大きなやりがいを感じています。</p>
+                  </div>
+                </div>
+
+                <div class="pp-card pp-card--flip">
+                  <div class="pp-photo">人物ポートレート（撮影）</div>
+                  <div class="pp-info">
+                    <div class="pp-name">小林 隆司</div>
+                    <div class="pp-meta"><span class="pp-role">パーキング新設営業</span><span class="pp-year">2014年入社</span></div>
+                    <p class="pp-quote">技術的な知識を活かしながら顧客と直接向き合う営業に挑戦したいと思い、就職活動を進めていました。IHIパーキングスクエアは技術提案型の営業スタイルをとっており、機械・建築の知識を持って顧客課題を解決できる点に強く惹かれました。完成した駐車場が都市に残り続けることへの誇りも、入社の大きな動機になりました。現在は新規案件の提案から契約まで一貫して担い、顧客の課題に対して最適なシステムを提案する仕事の面白さを日々実感しています。</p>
+                  </div>
+                </div>
+
+                <div class="pp-card">
+                  <div class="pp-photo">人物ポートレート（撮影）</div>
+                  <div class="pp-info">
+                    <div class="pp-name">加藤 里奈</div>
+                    <div class="pp-meta"><span class="pp-role">メンテナンス営業</span><span class="pp-year">2020年入社</span></div>
+                    <p class="pp-quote">人と長く関わり続けるリレーション型の営業がしたいと思い、就職活動をしていました。IHIパーキングスクエアのメンテナンス営業は、顧客の駐車設備を長期にわたって支え続ける仕事であり、単発の売り切りではなく関係を積み重ねていける点に魅力を感じました。インフラを守るという社会的意義の高さも入社の決め手になりました。担当する顧客から「加藤さんに任せれば安心」と言ってもらえた瞬間が、この仕事を続ける一番の原動力になっています。</p>
+                  </div>
+                </div>
+
+                <div class="pp-card pp-card--flip">
+                  <div class="pp-photo">人物ポートレート（撮影）</div>
+                  <div class="pp-info">
+                    <div class="pp-name">吉田 将太</div>
+                    <div class="pp-meta"><span class="pp-role">サービスエンジニア</span><span class="pp-year">2021年入社</span></div>
+                    <p class="pp-quote">在学中から機械と電気の両方を学んでおり、現場で実際にモノを動かすフィールドエンジニアの仕事に憧れていました。IHIパーキングスクエアのサービスエンジニアは、精密な機械式駐車装置を維持管理するという高い専門性が求められる仕事であり、自分のスキルを存分に活かせると確信しました。現場が毎回異なるダイナミックな環境も大きな魅力です。トラブル対応で迅速に装置を復旧させたとき、お客様から直接「ありがとう」と言葉をいただけることが何よりの喜びです。</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 裏表紙 (p.8) -->
+      <div class="viewer-item" data-view="5" data-label="裏表紙">
+        <div class="a4-page">
+          <div class="page-content page-content--full">
+            <div class="p8">
+
+              <!-- 上段: 会社概要 + グループ図 -->
+              <div class="p8-block p8-top-row">
+                <div class="p8-section-title">会社概要</div>
+                <div class="p8-section-title p8-section-title--sm">IHIグループ内でのIHIパーキングスクエアの役割</div>
+                <table class="p8-company-table">
+                  <tr><th>会社名</th><td>株式会社IHIパーキングスクエア（IHI PARKING SQUARE CO., LTD.）</td></tr>
+                  <tr><th>所在地</th><td>〒104-0044 東京都中央区明石町8-1（聖路加タワー）</td></tr>
+                  <tr><th>設立</th><td>1973年4月2日</td></tr>
+                  <tr><th>資本金</th><td>3億円</td></tr>
+                  <tr><th>事業内容</th><td>駐車場システムの企画・開発・設計・製造・販売・賃貸・据付・保守・改修・運営管理</td></tr>
+                </table>
+                <div class="p8-graph-wrap">
+                  <img src="graph.png" class="p8-graph-img" alt="IHIグループ図">
+                </div>
+              </div>
+
+              <!-- 下段: 専攻と職種 -->
+              <div class="p8-block">
+                <div class="p8-section-title">専攻と職種</div>
+                <div class="p8-table-wrap">
+                  <img src="table.png" class="p8-table-img" alt="専攻と職種">
+                </div>
+              </div>
+
+              <!-- 最下部: QRコード -->
+              <div class="p8-qr-area">
+                <div class="p8-qr-left">
+                  <div class="p8-qr-cta">エントリーはこちらから！</div>
+                  <p class="p8-qr-note">※採用状況や時期によっては、エントリーを締め切っている場合があります。詳しくは採用サイトをご覧ください。</p>
+                </div>
+                <div class="p8-qr-codes">
+                  <div class="p8-qr-item">
+                    <div class="p8-qr-code">QR</div>
+                    <div class="p8-qr-label">採用について</div>
+                    <div class="p8-qr-sublabel">採用HP</div>
+                  </div>
+                  <div class="p8-qr-item">
+                    <div class="p8-qr-code">QR</div>
+                    <div class="p8-qr-label">会社について</div>
+                    <div class="p8-qr-sublabel">コーポレートHP</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="viewer.js"></script>
+</body>
+</html>

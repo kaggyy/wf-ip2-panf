@@ -1,0 +1,1183 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  background: #e8e8e8;
+  color: #333;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── ツールバー ── */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: #2c2c2c;
+  color: #fff;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.toolbar-left .title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.toolbar-center {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#page-indicator {
+  font-size: 13px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#zoom-level {
+  font-size: 13px;
+  min-width: 44px;
+  text-align: center;
+}
+
+.nav-btn,
+.tool-btn {
+  background: #444;
+  border: none;
+  color: #fff;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+}
+
+.nav-btn:hover:not(:disabled),
+.tool-btn:hover {
+  background: #666;
+}
+
+.nav-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* ── ビューア ── */
+.viewer {
+  flex: 1;
+  overflow: auto;
+  padding: 32px;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+/* ── 単ページ / 見開き共通ラッパー ── */
+.viewer-item {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  position: relative;
+}
+
+/* ── A4 1枚 ── */
+.a4-page {
+  width: 210mm;
+  height: 297mm;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* 単ページの影 */
+.viewer-item:not(.spread) .a4-page {
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
+}
+
+/* ── 見開き ── */
+.spread .a4-page:first-child {
+  box-shadow: -4px 2px 12px rgba(0, 0, 0, 0.14);
+}
+
+.spread .a4-page:last-child {
+  box-shadow: 4px 2px 12px rgba(0, 0, 0, 0.14);
+}
+
+/* 綴じ部分の線 */
+.spread::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: rgba(0, 0, 0, 0.12);
+  pointer-events: none;
+}
+
+/* ── ページ内コンテンツ領域 ── */
+.page-content {
+  width: 100%;
+  height: 100%;
+  padding: 20mm;
+}
+
+/* ── フルブリード用パディングリセット ── */
+.page-content--full {
+  padding: 0;
+}
+
+/* ════════════════════════════════════════
+   P2: パーキングシステム事業
+════════════════════════════════════════ */
+.p2 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333;
+  overflow: hidden;
+  background-image: url('P2.png');
+  background-size: cover;
+  background-position: center;
+}
+
+/* トップバー */
+.p2-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5mm 8mm 3mm;
+  border-bottom: 1px solid #ddd;
+  flex-shrink: 0;
+}
+
+.p2-company {
+  font-family: 'Crimson Pro', serif;
+  font-size: 7pt;
+  color: #999;
+  letter-spacing: 0.04em;
+}
+
+.p2-bizno {
+  font-family: 'Crimson Pro', serif;
+  font-size: 9pt;
+  font-weight: 700;
+  color: #003E92;
+  letter-spacing: 0.08em;
+}
+
+/* カテゴリーバッジ */
+.p2-category {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #003E92;
+  color: #fff;
+  font-size: 9pt;
+  font-weight: 700;
+  padding: 3mm 8mm;
+  flex-shrink: 0;
+  letter-spacing: 0.06em;
+}
+
+.p2-category-icon {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #F5A623;
+  flex-shrink: 0;
+}
+
+/* 左上テキストエリア */
+.p2-top {
+  flex: 1;
+  padding: 8mm;
+  display: flex;
+  align-items: flex-start;
+}
+
+.p2-headline {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.55;
+  color: #fff;
+  text-align: justify;
+}
+
+/* 事業内容エリア */
+.p2-bottom {
+  flex: 0 0 74mm;
+  display: grid;
+  grid-template-columns: 1fr 50mm;
+  gap: 6mm;
+  padding: 8mm 10mm;
+  align-items: center;
+}
+
+.p2-section-label {
+  font-family: 'Crimson Pro', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4mm;
+}
+
+.p2-body {
+  font-size: 13.5px;
+  line-height: 2.1;
+  color: #fff;
+}
+
+.p2-bottom-placeholder {
+  background: #F5A623;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7pt;
+  font-weight: 700;
+  color: #fff;
+  writing-mode: vertical-rl;
+  letter-spacing: 0.1em;
+}
+
+.p2-bottom-img {
+  background: #d8dce2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 7pt;
+  color: #888;
+  text-align: center;
+  padding: 4px;
+  height: 100%;
+}
+
+/* ════════════════════════════════════════
+   P3: 事業紹介
+════════════════════════════════════════ */
+.p3 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333;
+  overflow: hidden;
+  padding: 8mm 9mm 6mm;
+  gap: 5mm;
+}
+
+.p3-header {
+  flex-shrink: 0;
+}
+
+.p3-section-title {
+  font-family: 'Crimson Pro', serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #003E92;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2px;
+}
+
+.p3-section-headline {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.p3-lead {
+  font-size: 11px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.p3-block {
+  flex-shrink: 0;
+}
+
+.p3-subsection-title {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #2E2E2E;
+}
+
+/* 対象施設 */
+.p3-facility-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+}
+
+.p3-facility-item {
+  border: 1px solid #e0e0e0;
+}
+
+.p3-facility-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  color: #aaa;
+}
+
+.p3-facility-label {
+  padding: 3px 5px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* 製品グリッド */
+.p3-product-grid {
+  display: grid;
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+}
+
+.p3-product-grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: -1px;
+}
+
+.p3-product-grid--3 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.p3-product-card {
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 6px;
+}
+
+.p3-product-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 5px;
+  background: #e0e0e0;
+}
+
+.p3-product-title {
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 3px;
+  line-height: 1.4;
+  color: #2E2E2E;
+}
+
+.p3-product-body {
+  font-size: 10px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* STRENGTHS — 事業紹介と同スタイル */
+.p3-strengths-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+}
+
+.p3-strength-item {
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 6px 8px;
+  display: grid;
+  grid-template-columns: 24px 1fr 28mm;
+  gap: 8px;
+  align-items: center;
+}
+
+.p3-strength-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.p3-strength-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  background: #e0e0e0;
+  flex-shrink: 0;
+}
+
+.p3-strength-num {
+  font-family: 'Crimson Pro', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #003E92;
+  line-height: 1;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+.p3-strength-title {
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 3px;
+  line-height: 1.4;
+}
+
+.p3-strength-body {
+  font-size: 10px;
+  color: #555;
+  line-height: 1.7;
+}
+
+.p3-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  margin-top: 5px;
+}
+
+.p3-flow-step {
+  font-size: 9px;
+  border: 1px solid #ccc;
+  padding: 2px 5px;
+  color: #555;
+  white-space: nowrap;
+}
+
+/* ════════════════════════════════════════
+   P6–7: インタビュー（PEOPLE）
+════════════════════════════════════════ */
+.pp {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333;
+  overflow: hidden;
+  padding: 8mm 9mm 6mm;
+}
+
+.pp-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 5mm;
+  flex-shrink: 0;
+}
+
+.pp-header--hidden {
+  visibility: hidden;
+  margin-bottom: 5mm;
+}
+
+.pp-label {
+  font-family: 'Crimson Pro', serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #003E92;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.pp-headline {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #2E2E2E;
+}
+
+.pp-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 1px;
+  background: #e0e0e0;
+  min-height: 0;
+}
+
+.pp-card {
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+/* 偶数カードは写真を右に */
+.pp-card--flip {
+  flex-direction: row-reverse;
+}
+
+.pp-photo {
+  flex: 0 0 42%;
+  background: #d8dce2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #aaa;
+}
+
+.pp-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 6mm 7mm 5mm;
+  min-height: 0;
+}
+
+.pp-name {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2E2E2E;
+  line-height: 1.3;
+}
+
+.pp-meta {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.pp-role {
+  font-size: 11px;
+  font-weight: 700;
+  color: #003E92;
+}
+
+.pp-year {
+  font-family: 'Crimson Pro', serif;
+  font-size: 10px;
+  color: #999;
+}
+
+.pp-quote {
+  font-size: 11px;
+  color: #555;
+  line-height: 2;
+}
+
+/* ════════════════════════════════════════
+   P4: 職種紹介
+════════════════════════════════════════ */
+.p4 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333;
+  overflow: hidden;
+  padding: 7mm 8mm 5mm;
+  gap: 4mm;
+}
+
+.p4-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.p4-en {
+  font-family: 'Crimson Pro', serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: #003E92;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.p4-ja {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2E2E2E;
+}
+
+.p4-body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4mm;
+}
+
+.p4-category {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5mm;
+}
+
+.p4-cat-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.p4-cat-en {
+  font-family: 'Crimson Pro', serif;
+  font-size: 9px;
+  font-weight: 700;
+  color: #003E92;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.p4-cat-title {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #2E2E2E;
+}
+
+.p4-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3mm;
+  flex: 1;
+  min-height: 0;
+}
+
+.p4-job {
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.p4-job-img {
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  background: #d8dce2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  color: #aaa;
+  flex-shrink: 0;
+}
+
+.p4-job-content {
+  padding: 6px 8px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.p4-job-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #2E2E2E;
+  line-height: 1.3;
+}
+
+.p4-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.p4-tag::before {
+  content: "#";
+}
+
+.p4-tag {
+  font-size: 8.5px;
+  color: #003E92;
+  border: 1px solid #003E92;
+  padding: 1px 4px;
+  line-height: 1.4;
+}
+
+.p4-job-desc {
+  font-size: 9.5px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ════════════════════════════════════════
+   P5: 仕事の流れ
+════════════════════════════════════════ */
+.p5 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333;
+  overflow: hidden;
+  padding: 7mm 8mm 5mm;
+  gap: 4mm;
+}
+
+.p5-header {
+  flex-shrink: 0;
+}
+
+.p5-ja {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #2E2E2E;
+}
+
+/* 8ステップ・4列×2行グリッド */
+.p5-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 3mm;
+  flex: 2;
+  min-height: 0;
+}
+
+.p5-step {
+  border: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.p5-step-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+  background: #d8dce2;
+  object-fit: cover;
+  display: block;
+}
+
+.p5-step-body {
+  padding: 5px 7px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  overflow: hidden;
+}
+
+.p5-step-num {
+  font-family: 'Crimson Pro', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #003E92;
+  line-height: 1;
+}
+
+.p5-step-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #2E2E2E;
+  line-height: 1.3;
+}
+
+.p5-step-desc {
+  font-size: 9.5px;
+  color: #555;
+  line-height: 1.75;
+}
+
+/* ビジョン・研究開発 */
+.p5-vision {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 5mm;
+  border-top: 1px solid #ddd;
+  padding-top: 4mm;
+}
+
+.p5-vision-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.p5-vision-title {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #2E2E2E;
+  margin-bottom: 2px;
+}
+
+.p5-vision-body {
+  font-size: 9.5px;
+  color: #555;
+  line-height: 1.8;
+}
+
+.p5-vision-footnote {
+  font-size: 8px;
+  color: #999;
+  line-height: 1.6;
+  margin-top: 2px;
+}
+
+.p5-vision-img {
+  background: #d8dce2;
+  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ════════════════════════════════════════
+   P8: 裏表紙
+════════════════════════════════════════ */
+.p8 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Noto Sans JP', sans-serif;
+  color: #333;
+  overflow: hidden;
+  padding: 8mm 9mm 6mm;
+  gap: 5mm;
+}
+
+.p8-block {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4mm;
+}
+
+.p8-section-title {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2E2E2E;
+  border-bottom: 2px solid #003E92;
+  padding-bottom: 3px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.p8-section-title--sm {
+  font-size: 11px;
+}
+
+/* 上段: タイトル行・内容行を2×2グリッドで揃える */
+.p8-top-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 4mm 6mm;
+}
+
+.p8-graph-wrap {
+  min-height: 0;
+}
+
+.p8-graph-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* 会社概要テーブル */
+.p8-company-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+}
+
+.p8-company-table tr {
+  border-bottom: 1px solid #eee;
+}
+
+.p8-company-table th {
+  width: 28%;
+  padding: 5px 8px 5px 0;
+  font-weight: 700;
+  color: #003E92;
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.p8-company-table td {
+  padding: 5px 0;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* 専攻×職種マトリクス */
+.p8-matrix {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10.5px;
+}
+
+.p8-matrix thead th {
+  background: #003E92;
+  color: #fff;
+  font-weight: 700;
+  padding: 5px 6px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.p8-matrix-head-row {
+  text-align: left !important;
+  width: 30%;
+}
+
+.p8-matrix tbody tr:nth-child(even) {
+  background: #f5f7fb;
+}
+
+.p8-matrix-label {
+  padding: 6px 8px 6px 0;
+  font-weight: 700;
+  color: #2E2E2E;
+}
+
+.p8-matrix td {
+  padding: 6px;
+  text-align: center;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.p8-dot {
+  color: #003E92;
+  font-size: 11px;
+}
+
+/* 専攻と職種 画像 */
+.p8-table-wrap {
+  flex: 1;
+  min-height: 0;
+}
+
+.p8-table-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: left top;
+  display: block;
+}
+
+/* QRコードエリア */
+.p8-qr-area {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6mm;
+  padding-top: 4mm;
+  border-top: 2px solid #003E92;
+}
+
+.p8-qr-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.p8-qr-cta {
+  font-family: 'Shippori Mincho B1', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #003E92;
+}
+
+.p8-qr-company {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2E2E2E;
+  margin-bottom: 4px;
+}
+
+.p8-qr-note {
+  font-size: 8px;
+  color: #999;
+  line-height: 1.6;
+}
+
+.p8-qr-codes {
+  display: flex;
+  gap: 5mm;
+  flex-shrink: 0;
+}
+
+.p8-qr-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.p8-qr-code {
+  width: 18mm;
+  height: 18mm;
+  background: #e8e8e8;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  color: #aaa;
+  font-family: 'Crimson Pro', serif;
+}
+
+.p8-qr-label {
+  font-size: 9px;
+  font-weight: 700;
+  color: #333;
+  text-align: center;
+}
+
+.p8-qr-sublabel {
+  font-size: 8px;
+  color: #999;
+  text-align: center;
+}
+
+/* ── アノテーション ── */
+.annotation-wrap {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+}
+
+.annotation-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #F5A623;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.15s, background 0.15s;
+}
+
+.annotation-btn:hover {
+  transform: scale(1.1);
+  background: #e09400;
+}
+
+.annotation-popup {
+  display: none;
+  position: absolute;
+  top: 38px;
+  right: 0;
+  width: 280px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  padding: 10px 12px;
+  font-family: 'Noto Sans JP', sans-serif;
+  line-height: 1.7;
+}
+
+.annotation-popup.active {
+  display: block;
+}
+
+.annotation-popup::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  right: 11px;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  transform: rotate(45deg);
+}
+
+.annotation-popup-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #003E92;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #eee;
+}
+
+.annotation-popup-section {
+  font-size: 11px;
+  font-weight: 700;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 3px;
+  margin-top: 10px;
+}
+
+.annotation-popup-body {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ── 表紙画像 ── */
+.cover-page {
+  padding: 0;
+}
+
+.cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
