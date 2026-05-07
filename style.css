@@ -234,6 +234,20 @@ body {
   text-align: justify;
 }
 
+/* 画像注記 */
+.p2-img-note {
+  position: absolute;
+  top: calc((100% - 74mm) / 2);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  color: #fff;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
 /* 事業内容エリア */
 .p2-bottom {
   flex: 0 0 74mm;
