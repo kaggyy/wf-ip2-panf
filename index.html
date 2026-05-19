@@ -29,15 +29,10 @@
   <main class="viewer" id="viewer">
     <div class="page-container" id="page-container">
 
-      <!-- 表紙 (p.1) -->
-      <div class="viewer-item" data-view="1" data-label="表紙">
-        <div class="a4-page cover-page">
-          <img src="P1.png" alt="表紙" class="cover-img">
-        </div>
-      </div>
+      <!-- 単ページ (p.1) -->
+      <div class="viewer-item" data-view="1" data-label="1">
 
-      <!-- 見開き (p.2–3) -->
-      <div class="viewer-item spread" data-view="2" data-label="2–3">
+        <!-- P1: 事業内容 -->
         <div class="a4-page">
           <div class="page-content page-content--full">
             <div class="p2">
@@ -47,13 +42,9 @@
                 <p class="p2-headline">人、クルマ、街をつなぎ、<br>社会機能の<br>維持に貢献。</p>
               </div>
 
-              <!-- 画像注記 -->
-              <p class="p2-img-note">画像は仮です</p>
-
               <!-- 事業内容 -->
               <div class="p2-bottom">
                 <div class="p2-bottom-text">
-                  <div class="p2-section-label">事業内容</div>
                   <p class="p2-body">IHIパーキングスクエアは、機械式駐車装置の設計・製造・施工から保守・メンテナンスまでを一貫して手がけるパーキングシステムの専門会社です。タワーパーキングや地下式など多彩な駐車システムを通じて、都市の限られた空間を最大限に活用。自走式立体駐車場の設計・施工にも対応し、安全で快適な駐車環境の実現に貢献しています。</p>
                 </div>
                 <div class="p2-bottom-img">
@@ -64,6 +55,13 @@
             </div>
           </div>
         </div>
+
+      </div>
+
+      <!-- 見開き (p.2–3) -->
+      <div class="viewer-item spread" data-view="2" data-label="2–3">
+
+        <!-- P2: 製品紹介・IP2の特徴 -->
         <div class="a4-page">
           <div class="page-content page-content--full">
             <div class="p3">
@@ -159,17 +157,16 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- 見開き (p.4–5) -->
-      <div class="viewer-item spread" data-view="3" data-label="4–5">
-
-        <!-- P4: 職種紹介 -->
+        <!-- P3: 職種紹介 -->
         <div class="a4-page">
           <div class="page-content page-content--full">
             <div class="p4">
               <div class="p4-header">
                 <span class="p4-ja">職種紹介</span>
+              </div>
+              <div class="recruit-qr recruit-qr--top-right">
+                <div class="recruit-qr-text">詳しくは採用サイトへ</div>
+                <div class="recruit-qr-code" role="img" aria-label="採用サイト QRコード プレースホルダー">QR</div>
               </div>
 
               <div class="p4-body">
@@ -291,7 +288,12 @@
           </div>
         </div>
 
-        <!-- P5: 仕事の流れ -->
+      </div>
+
+      <!-- 見開き (p.4–5) -->
+      <div class="viewer-item spread" data-view="3" data-label="4–5">
+
+        <!-- P4: 仕事の流れ -->
         <div class="a4-page">
           <div class="page-content page-content--full">
             <div class="p5">
@@ -379,17 +381,102 @@
           </div>
         </div>
 
+        <!-- P5: 福利厚生 -->
+        <div class="a4-page">
+          <div class="page-content page-content--full">
+            <div class="pw">
+              <div class="pw-header">
+                <div>
+                  <h1 class="pw-title">福利厚生</h1>
+                </div>
+              </div>
+              <div class="recruit-qr recruit-qr--top-right">
+                <div class="recruit-qr-text">詳しくは採用サイトへ</div>
+                <div class="recruit-qr-code" role="img" aria-label="採用サイト QRコード プレースホルダー">QR</div>
+              </div>
+
+              <div class="pw-card-grid">
+                <section class="pw-info-card">
+                  <h2>休日・休暇</h2>
+                  <dl>
+                    <div><dt>年間休日</dt><dd>125日以上</dd></div>
+                    <div><dt>長期休暇</dt><dd>GW休暇・夏季休暇・盆休暇・年末年始休暇<br>（ダミー文章）年間を通じてまとまった休みを取得しやすい環境を整えています。プライベートの充実や家族との時間を大切にできる働き方を支援します。</dd></div>
+                    <div><dt>年次有給休暇</dt><dd>22日（初年度より付与）</dd></div>
+                    <div><dt>時間単位年休</dt><dd>（ダミー文章）有給休暇を1時間単位で取得できる制度です。通院や子どもの行事など、短時間の用事にも柔軟に対応でき、休暇を無駄なく活用できます。</dd></div>
+                  </dl>
+                </section>
+
+                <section class="pw-info-card">
+                  <h2>働く環境・住まい</h2>
+                  <dl>
+                    <div><dt>リモートワーク制度</dt><dd>（ダミー文章）職種や業務内容に応じて在宅勤務を導入しています。通勤負担を軽減しながら、集中しやすい環境で生産性の高い働き方を実現できます。</dd></div>
+                    <div><dt>フレックス制度</dt><dd>（ダミー文章）コアタイムを設けたうえで、始業・終業時刻を柔軟に選択できます。生活リズムや家庭の事情に合わせた自分らしい働き方を支援します。</dd></div>
+                    <div><dt>副業制度</dt><dd>（ダミー文章）会社が認める範囲での副業・兼業が可能です。社外での経験やスキルを本業にも活かしながら、多様なキャリアを描くことができます。</dd></div>
+                    <div><dt>昼食</dt><dd>本社勤務及び沼津勤務の社員は（一部会社負担）昼食支給あり。他拠点は昼食相当分の福利補助手当支給あり</dd></div>
+                  </dl>
+                </section>
+
+                <section class="pw-info-card">
+                  <h2>両立支援</h2>
+                  <dl>
+                    <div><dt>育休・産休制度</dt><dd>（ダミー文章）産前・産後休業および育児休業を取得しやすい環境を整えています。復職後も時短勤務などを組み合わせながら、長く活躍し続けられます。</dd></div>
+                    <div><dt>企業主導型保育園</dt><dd>（ダミー文章）IHIグループが提携する企業主導型保育園を利用できます。保育先探しの不安を解消し、安心して職場復帰できる環境を整えています。</dd></div>
+                    <div><dt>教育資金融資制度</dt><dd>（ダミー文章）子どもの進学時に必要な教育資金を低利で融資する制度です。大学・専門学校への進学をサポートし、家計の負担を軽減できます。</dd></div>
+                    <div><dt>介護支援制度</dt><dd>（ダミー文章）家族の介護が必要になった際に、休暇取得や短時間勤務を活用できます。仕事と介護を両立しながら、安心してキャリアを継続できる環境を整えています。</dd></div>
+                  </dl>
+                </section>
+
+                <section class="pw-info-card">
+                  <h2>成長支援</h2>
+                  <dl>
+                    <div><dt>階層別研修</dt><dd>（ダミー文章）入社年次や役職に応じた研修プログラムを体系的に用意しています。各ステージで必要なスキルと知識を計画的に身につけられます。</dd></div>
+                    <div><dt>IHIグループ選択型研修</dt><dd>（ダミー文章）IHIグループが提供する多彩な研修から、自分の成長目標に合ったプログラムを選択して受講できます。専門スキルからビジネス基礎まで幅広く対応しています。</dd></div>
+                    <div><dt>指導員制度</dt><dd>（ダミー文章）入社後は先輩社員が指導員として個別にサポートします。業務の進め方や社内ルールを丁寧に指導し、早期の職場定着と成長を支援します。</dd></div>
+                    <div><dt>キャリア形成支援</dt><dd>（ダミー文章）定期的な面談や自己申告制度を通じて、個人のキャリアビジョンに沿った配置・育成を行っています。長期的な視点で一人ひとりの成長をサポートします。</dd></div>
+                  </dl>
+                </section>
+
+                <section class="pw-info-card">
+                  <h2>健康</h2>
+                  <dl>
+                    <div><dt>人間ドック補助</dt><dd>（ダミー文章）定期健康診断に加え、人間ドック受診費用の一部を会社が補助します。早期発見・早期治療を促し、社員が長く健康で働き続けられる環境を支援します。</dd></div>
+                    <div><dt>インフルエンザ予防補助</dt><dd>（ダミー文章）毎年秋に実施するインフルエンザ予防接種の費用を会社が補助します。職場での感染拡大防止と、社員一人ひとりの健康を守る取り組みです。</dd></div>
+                    <div><dt>禁煙に関する取り組み</dt><dd>（ダミー文章）健康経営の一環として、禁煙外来費用の補助や職場内禁煙区域の整備など、禁煙を支援するさまざまな取り組みを推進しています。</dd></div>
+                    <div><dt>健康経営優良法人</dt><dd>（ダミー文章）社員の健康管理を経営的な視点で捉え、戦略的に推進しています。健康経営優良法人として認定を受けており、継続的な健康増進活動を実施しています。</dd></div>
+                  </dl>
+                </section>
+
+                <section class="pw-info-card">
+                  <h2>資産形成・その他</h2>
+                  <dl>
+                    <div><dt>財形貯蓄制度</dt><dd>（ダミー文章）給与から自動的に積み立てができる財形貯蓄制度を導入しています。住宅取得や老後資金など、目的に合わせた計画的な貯蓄をサポートします。</dd></div>
+                    <div><dt>企業型拠出年金制度</dt><dd>（ダミー文章）会社が掛金を拠出する企業型確定拠出年金（DC）を導入しています。老後の資産形成を会社がサポートする仕組みで、将来の安心につながります。</dd></div>
+                    <div><dt>確定拠出年金制度</dt><dd>（ダミー文章）自身で運用先を選択しながら老後資金を積み立てられる制度です。節税メリットもあり、長期的な視点での資産形成に役立てられます。</dd></div>
+                    <div><dt>持ち株会</dt><dd>（ダミー文章）毎月の給与から一定額を積み立て、自社グループの株式を購入できます。会社からの奨励金上乗せもあり、資産形成と会社の成長を共に享受できます。</dd></div>
+                  </dl>
+                </section>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <!-- 見開き (p.6–7) -->
       <div class="viewer-item spread" data-view="4" data-label="6–7">
 
-        <!-- P6 -->
+        <!-- P6: 人を知る（前半） -->
         <div class="a4-page">
           <div class="page-content page-content--full">
             <div class="pp">
               <div class="pp-header">
                 <span class="pp-headline">人を知る</span>
+              </div>
+              <div class="recruit-qr recruit-qr--top-right">
+                <div class="recruit-qr-text">詳しくは採用サイトへ</div>
+                <div class="recruit-qr-code" role="img" aria-label="採用サイト QRコード プレースホルダー">QR</div>
               </div>
               <div class="pp-grid">
 
@@ -434,11 +521,15 @@
           </div>
         </div>
 
-        <!-- P7 -->
+        <!-- P7: 人を知る（後半） -->
         <div class="a4-page">
           <div class="page-content page-content--full">
             <div class="pp">
               <div class="pp-header pp-header--hidden"></div>
+              <div class="recruit-qr recruit-qr--top-right">
+                <div class="recruit-qr-text">詳しくは採用サイトへ</div>
+                <div class="recruit-qr-code" role="img" aria-label="採用サイト QRコード プレースホルダー">QR</div>
+              </div>
               <div class="pp-grid">
 
                 <div class="pp-card">
@@ -484,8 +575,10 @@
 
       </div>
 
-      <!-- 裏表紙 (p.8) -->
-      <div class="viewer-item" data-view="5" data-label="裏表紙">
+      <!-- 単ページ (p.8) -->
+      <div class="viewer-item" data-view="5" data-label="8">
+
+        <!-- P8: 会社概要・専攻と職種 -->
         <div class="a4-page">
           <div class="page-content page-content--full">
             <div class="p8">
@@ -517,19 +610,17 @@
               <!-- 最下部: QRコード -->
               <div class="p8-qr-area">
                 <div class="p8-qr-left">
-                  <div class="p8-qr-cta">エントリーはこちらから！</div>
-                  <p class="p8-qr-note">※採用状況や時期によっては、エントリーを締め切っている場合があります。詳しくは採用サイトをご覧ください。</p>
+                  <div class="p8-qr-cta">詳しくはこちらから</div>
+                  <p class="p8-qr-note">採用状況や時期によっては、エントリーを締め切っている場合があります。詳しくは採用サイトをご覧ください。</p>
                 </div>
                 <div class="p8-qr-codes">
                   <div class="p8-qr-item">
-                    <div class="p8-qr-code">QR</div>
-                    <div class="p8-qr-label">採用について</div>
-                    <div class="p8-qr-sublabel">採用HP</div>
+                    <div class="p8-qr-code" role="img" aria-label="採用サイト QRコード プレースホルダー">QR</div>
+                    <div class="p8-qr-label">採用サイト</div>
                   </div>
                   <div class="p8-qr-item">
-                    <div class="p8-qr-code">QR</div>
-                    <div class="p8-qr-label">会社について</div>
-                    <div class="p8-qr-sublabel">コーポレートHP</div>
+                    <div class="p8-qr-code" role="img" aria-label="コーポレートサイト QRコード プレースホルダー">QR</div>
+                    <div class="p8-qr-label">コーポレートサイト</div>
                   </div>
                 </div>
               </div>
